@@ -134,3 +134,9 @@ your system. If you don't do this no Android applications will
 show up in the system application launcher.
 
 ```
+
+## launching command
+```
+env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/anbox_anbox.desktop /snap/bin/anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
+
+```
