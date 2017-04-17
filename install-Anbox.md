@@ -252,6 +252,13 @@ Successfully removed anbox!
 
 ### error
 ```
-env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/anbox_anbox.desktop /snap/bin/anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
+esteoh@C640linux:~$ env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/anbox_anbox.desktop /snap/bin/anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity &
+[1] 23371
+esteoh@C640linux:~$ jobs
+[1]+  Running                 env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/anbox_anbox.desktop /snap/bin/anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity &
+esteoh@C640linux:~$ [WW 2017-04-17 15:30:33] [launch.cpp:115@operator()] Stop waiting as we're already waiting for too long. Something is wrong
+[WW 2017-04-17 15:30:33] [launch.cpp:116@operator()] with your setup and the container may have failed to boot.
+
+[1]+  Exit 1                  env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/anbox_anbox.desktop /snap/bin/anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
 
 ```
