@@ -135,8 +135,117 @@ show up in the system application launcher.
 
 ```
 
-## launching command
+### launching command
 ```
 env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/anbox_anbox.desktop /snap/bin/anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
+
+```
+
+### Uninstall 
+```
+esteoh@C640linux:~$ ./anbox-installer 
+Android in a Box - Installer
+
+
+IMPORTANT: THIS IS ALPHA LEVEL SOFTWARE. EXPECT INSTABILITY AND
+           BUGS !!!!!
+
+IMPORTANT: ALSO PLEASE BE AWARE THAT WE DON'T PROVIDE FULL
+           CONFINEMENT FOR THE SNAP YET !!!!
+
+
+PLEASE NOTE: This script will require root access on your system
+to install all necessary things. It will prompt you to enter your
+password when required.
+
+
+
+What do you want to do?
+
+ 1. Install Anbox
+ 2. Uninstall Anbox
+
+Please enter your choice [1-2]: 
+2
+
+
+This will now remove the Android in a Box runtime environment
+from your device. Do you really want this?
+
+Please be aware that this will also remove any user data
+stored inside the runtime environment.
+
+Please type 'I AGREE' followed by pressing ENTER to continue
+or type anything else to abort:
+I AGREE
+
++ '[' -e /home/esteoh/.config/upstart/anbox.conf ']'
++ initctl stop anbox
+initctl: Unknown instance: 
++ rm -f /home/esteoh/.config/upstart/anbox.conf
++ sudo systemctl stop snap.anbox.container-manager
+[sudo] password for esteoh: 
++ sudo snap remove anbox
+anbox removed
++ sudo rm -f /etc/udev/rules.d/99-anbox.rules
++ sudo rm -f /etc/modules-load.d/anbox.conf
++ sudo rmmod ashmem_linux binder_linux
++ sudo apt purge -y anbox-modules-dkms
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  dkms
+Use 'sudo apt autoremove' to remove it.
+The following packages will be REMOVED:
+  anbox-modules-dkms*
+0 upgraded, 0 newly installed, 1 to remove and 0 not upgraded.
+After this operation, 342 kB disk space will be freed.
+(Reading database ... 296715 files and directories currently installed.)
+Removing anbox-modules-dkms (4~xenial1) ...
++ '[' -e /etc/apt/sources.list.d/morphis-ubuntu-anbox-support-xenial.list ']'
++ sudo apt install -y ppa-purge
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  dkms
+Use 'sudo apt autoremove' to remove it.
+Suggested packages:
+  aptitude
+The following NEW packages will be installed:
+  ppa-purge
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6,312 B of archives.
+After this operation, 24.6 kB of additional disk space will be used.
+Get:1 http://tw.archive.ubuntu.com/ubuntu xenial/universe amd64 ppa-purge all 0.2.8+bzr63 [6,312 B]
+Fetched 6,312 B in 0s (66.8 kB/s)    
+Selecting previously unselected package ppa-purge.
+(Reading database ... 296682 files and directories currently installed.)
+Preparing to unpack .../ppa-purge_0.2.8+bzr63_all.deb ...
+Unpacking ppa-purge (0.2.8+bzr63) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up ppa-purge (0.2.8+bzr63) ...
++ sudo ppa-purge ppa:morphis/anbox-support
+Updating packages lists
+PPA to be removed: morphis anbox-support
+Package revert list generated:
+
+
+Disabling morphis PPA from 
+/etc/apt/sources.list.d/morphis-ubuntu-anbox-support-xenial.list
+Updating packages lists
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  dkms
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+PPA purged successfully
++ sudo rm -f /etc/X11/Xsession.d/68anbox
++ set +xe
+
+Successfully removed anbox!
 
 ```
