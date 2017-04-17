@@ -249,3 +249,9 @@ PPA purged successfully
 Successfully removed anbox!
 
 ```
+
+### error
+```
+env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/anbox_anbox.desktop /snap/bin/anbox launch --package=org.anbox.appmgr --component=org.anbox.appmgr.AppViewActivity
+
+```
