@@ -29,3 +29,10 @@
     Success! Project is published and running at xyzabc.surge.sh
 
 ```
+
+### Remembering domain
+
+```
+surge --domain xyzabc.surge.sh
+
+```
